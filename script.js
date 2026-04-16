@@ -4,6 +4,31 @@ const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
 document.addEventListener('scroll', onScroll, { passive: true });
 onScroll();
 
+// Mobile menu
+const menuBtn = document.getElementById('menuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const setMenu = (open) => {
+  if (!menuBtn || !mobileMenu) return;
+  menuBtn.setAttribute('aria-expanded', String(open));
+  mobileMenu.setAttribute('aria-hidden', String(!open));
+  mobileMenu.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+};
+menuBtn?.addEventListener('click', () => {
+  setMenu(!mobileMenu.classList.contains('open'));
+});
+mobileMenu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
+document.addEventListener('click', (e) => {
+  if (!mobileMenu?.classList.contains('open')) return;
+  if (nav.contains(e.target)) return;
+  setMenu(false);
+});
+const desktopMq = window.matchMedia('(min-width: 981px)');
+const onDesktopMq = (e) => { if (e.matches) setMenu(false); };
+if (desktopMq.addEventListener) desktopMq.addEventListener('change', onDesktopMq);
+else desktopMq.addListener(onDesktopMq);
+
 // Reveal-on-scroll
 const io = new IntersectionObserver((entries) => {
   for (const e of entries) {
