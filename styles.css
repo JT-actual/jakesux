@@ -640,13 +640,76 @@ code { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: .9em; 
 .video-frame:hover .play { transform: scale(1.06); }
 .video-frame .caption { position: absolute; bottom: 18px; color: var(--muted); font-size: 13px; }
 
+/* timeline (used on changelog subpage) — reset .prose ol counter styling */
+.prose ol.timeline,
+.prose ul.timeline {
+  padding: 0;
+  counter-reset: none;
+  display: grid;
+  gap: 18px;
+  margin: 24px 0;
+  list-style: none;
+}
+.prose ol.timeline li,
+.prose ul.timeline li {
+  padding: 22px 22px 22px 26px;
+  counter-increment: none;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  position: relative;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.prose ol.timeline li::before,
+.prose ul.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 22px;
+  right: auto;
+  bottom: 22px;
+  width: 3px;
+  height: auto;
+  border-radius: 3px;
+  background: var(--grad);
+  display: block;
+  padding: 0;
+  counter-increment: none;
+  color: transparent;
+  font-size: 0;
+}
+.prose .timeline h4 { margin: 0 0 4px; font-size: 16.5px; letter-spacing: -.01em; color: var(--text); font-weight: 700; }
+.prose .timeline p { margin: 0; color: var(--muted); font-size: 14.5px; line-height: 1.55; }
+.prose .timeline .ver { font-family: 'JetBrains Mono'; font-size: 12px; color: var(--muted); display: inline-flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+
 @media (max-width: 620px) {
   .page-hero { padding: 56px 0 32px; }
+  .page-hero h1 { font-size: 32px; line-height: 1.1; }
+  .page-hero p.lede { font-size: 16px; }
   .page-body { padding: 40px 0 72px; }
   .prose h2 { font-size: 22px; margin: 36px 0 10px; }
-  .prose h3 { font-size: 17px; }
-  .prose pre { padding: 14px 16px; font-size: 12.5px; }
+  .prose h3 { font-size: 17px; margin: 28px 0 8px; }
+  .prose p { font-size: 15.5px; }
+  .prose pre { padding: 14px 16px; font-size: 12.5px; border-radius: 10px; }
+  .prose blockquote { padding: 10px 14px; margin: 18px 0; }
   .auth-card { padding: 24px; }
+  .tile-grid { gap: 12px; }
+  .tile { padding: 18px 18px 16px; }
+  .video-frame { border-radius: 16px; }
+  .video-frame .play { width: 60px; height: 60px; font-size: 22px; }
+}
+
+@media (max-width: 420px) {
+  .page-hero { padding: 44px 0 26px; }
+  .page-hero h1 { font-size: 28px; }
+  .page-body { padding: 32px 0 60px; }
+  .prose h2 { font-size: 20px; }
+  .prose pre { padding: 12px 14px; font-size: 12px; }
+  .tile-grid { grid-template-columns: 1fr; }
+  .auth-card { padding: 20px; border-radius: 14px; }
+  .prose ol.timeline li,
+  .prose ul.timeline li { padding: 18px 18px 18px 22px; }
 }
 
 /* ============ MENU BUTTON ============ */
