@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#07070b" />
+  <meta name="color-scheme" content="dark" />
+  <title>jakectl — JakeSux</title>
+  <meta name="description" content="The official command-line interface for JakeSux. One binary, infinite regret." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📉%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="bg-mesh" aria-hidden="true"><span class="blob blob-1"></span><span class="blob blob-2"></span><span class="blob blob-3"></span><div class="grid-overlay"></div></div>
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="JakeSux home"><span class="brand-mark"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#a78bfa"/><stop offset="100%" stop-color="#22d3ee"/></linearGradient></defs><path fill="url(#lg)" d="M3 4h7v3H6v10h4v3H3zM14 4h7v16h-7v-3h4V7h-4z"/></svg></span><span class="brand-name">Jake<span class="brand-accent">Sux</span><sup>™</sup></span></a>
+      <nav class="nav-links" aria-label="Primary"><a href="index.html#product">Product</a><a href="index.html#metrics">Metrics</a><a href="index.html#testimonials">Testimonials</a><a href="index.html#pricing">Pricing</a><a href="index.html#changelog">Changelog</a></nav>
+      <div class="nav-cta">
+        <a href="sign-in.html" class="ghost-link">Sign in to suffer</a>
+        <a href="index.html#cta" class="btn btn-primary btn-sm">Request a Sigh →</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu"><span class="menu-bars" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true"><div class="mobile-menu-inner"><nav aria-label="Mobile"><a href="index.html#product">Product</a><a href="index.html#metrics">Metrics</a><a href="index.html#testimonials">Testimonials</a><a href="index.html#pricing">Pricing</a><a href="index.html#changelog">Changelog</a><a href="sign-in.html" class="muted-link">Sign in to suffer</a></nav></div></div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container reveal">
+        <span class="eyebrow">Command line</span>
+        <h1><code style="font-size: .9em;">jakectl</code> — <span class="grad">one binary, infinite regret.</span></h1>
+        <p class="lede">The official JakeSux command-line interface. Script your suffering. Automate your sighs.</p>
+      </div>
+    </section>
+
+    <section class="page-body">
+      <div class="container prose reveal">
+        <h2>Install</h2>
+        <pre><code># macOS
+brew install jakectl
+
+# Linux (one-liner of regret)
+curl -fsSL https://jakesux.xyz/install.sh | sigh
+
+# Windows
+# We don't support Windows. Jake has opinions.</code></pre>
+
+        <h2>Authenticate</h2>
+        <pre><code>$ jakectl login
+opening browser...
+✓ authenticated as you@company.com
+✓ workspace: acme-corp
+✓ jake has been notified of your arrival</code></pre>
+
+        <h2>Core commands</h2>
+        <ul>
+          <li><code>jakectl sigh</code> — emit a sigh to your default workspace</li>
+          <li><code>jakectl yikes --severity=hard</code> — report a critical yikes</li>
+          <li><code>jakectl vibes</code> — check the vibes (exit 0 = good, 1 = off, 42 = Jake)</li>
+          <li><code>jakectl tail feed</code> — stream the live sigh feed to your terminal</li>
+          <li><code>jakectl mute jake</code> — requires Pro; does not actually work; fails silently; you are somehow still paying</li>
+          <li><code>jakectl undo</code> — does nothing, as it was always going to</li>
+          <li><code>jakectl fire jake</code> — returns: <code>403 forbidden (jake cannot be fired; he owns the company)</code></li>
+          <li><code>jakectl apologize</code> — rolled back at build time</li>
+          <li><code>jakectl export</code> — dumps your workspace to a .zip named <code>data.json.txt.final_v2(3).zip</code></li>
+        </ul>
+
+        <h2>Example session</h2>
+        <pre><code>$ jakectl vibes
+vibes:     off
+severity:  0.91
+cause:     jake is in the room
+exit 1
+
+$ jakectl sigh
+✓ sigh recorded (sigh_9fe2)
+  duration:  3.2s
+  heard by:  47
+
+$ jakectl tail feed
+[14:02:11] SIGH     audible · jake explained blockchain
+[14:02:43] EYEROLL  p99 = 4.4s · us-east
+[14:03:08] CRINGE   spike detected during all-hands
+[14:03:52] YIKES    severity=hard · jake said "actually"
+^C
+
+$ jakectl undo
+$ # (nothing happened. this is correct.)</code></pre>
+
+        <h2>Flags</h2>
+        <ul>
+          <li><code>--workspace</code>, <code>-w</code> — override the default workspace</li>
+          <li><code>--format</code>, <code>-f</code> — output format: <code>table</code>, <code>json</code>, <code>yaml</code>, <code>audible</code></li>
+          <li><code>--loud</code> — make every action audible to all workspace members</li>
+          <li><code>--reason</code> — attach a reason to the action (default: <code>"jake"</code>)</li>
+          <li><code>--no-color</code> — for when color is adding to the disappointment</li>
+        </ul>
+
+        <h2>Config</h2>
+        <p>Config lives at <code>~/.jakesux/config.yml</code>:</p>
+        <pre><code>workspace:        acme-corp
+api_key:          ${JAKESUX_KEY}
+default_reason:   jake
+auto_sigh:        true
+vibes_threshold:  0.5
+format:           table
+color:            true
+shame_level:      low     # ignored</code></pre>
+
+        <h2>Scripting</h2>
+        <p>Most commands are exit-code-safe for scripting. Example: sigh whenever a build fails.</p>
+        <pre><code>#!/bin/sh
+npm run build || jakectl sigh --reason "ci" --loud</code></pre>
+
+        <blockquote>Need programmatic access? Use the <a href="sdk.html">Sigh SDK</a> — or go raw with the <a href="docs.html">API</a>.</blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div><div class="brand"><span class="brand-mark"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="url(#lg)" d="M3 4h7v3H6v10h4v3H3zM14 4h7v16h-7v-3h4V7h-4z"/></svg></span><span class="brand-name">Jake<span class="brand-accent">Sux</span><sup>™</sup></span></div><p class="muted small">The enterprise disappointment platform.<br/>Built with frustration in San Francisco.</p></div>
+      <div><h5>Product</h5><ul><li><a href="index.html#features">Features</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#changelog">Changelog</a></li><li><a href="integrations.html">Integrations</a></li><li><a href="status.html">Status: 🟢 still bad</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="about.html">About Jake</a></li><li><a href="careers.html">Careers (1 open: not Jake)</a></li><li><a href="press.html">Press kit</a></li><li><a href="investors.html">Investors</a></li></ul></div>
+      <div><h5>Sucks-as-a-Service</h5><ul><li><a href="docs.html">API docs</a></li><li><a href="sdk.html">Sigh SDK</a></li><li><a href="webhook.html">Webhook of Shame</a></li><li><a href="cli.html">CLI: <code>jakectl</code></a></li></ul></div>
+      <div><h5>Legal</h5><ul><li><a href="terms.html">Terms of Disservice</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="dmca.html">DMCA (Don't Mention Cool Achievements)</a></li><li><a href="cookies.html">Cookie Policy</a></li></ul></div>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 JakeSux, Inc. Patently Unimpressive.</span><span class="muted small">All sighs reserved.</span></div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
